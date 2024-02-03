@@ -99,6 +99,23 @@ extension EasyFirestore {
       let fullPath: String = "\(path.string).\(key)"
       db.collection(collectionName).document(document.id).updateData([fullPath: value as Any], completion: completion)
     }
+    
+    /**
+     Updates a key-value pair to a map in a field in Firestore.
+     
+     ℹ️ **Note:** This will not override and erase other key/value pairs in the same field.
+
+     - parameter key: The key of the value to update in the map in a field in Firestore.
+     - parameter value: The value to update in the map in a field in Firestore.
+     - parameter path: The path to the document's map field to update.
+     - parameter document: The document to modify.
+     - parameter completion: The completion handler.
+     */
+    public static func updateMapValueWithPath<T, U>(key: String, value: U?, parentField: String, in document: T, completion: @escaping (Error?) -> Void = { _ in }) where T: Document, U: Codable {
+      let collectionName = String(describing: type(of: document))
+      let fullPath: String = "\(parentField).\(key)"
+      db.collection(collectionName).document(document.id).updateData([fullPath: value as Any], completion: completion)
+    }
 
     /**
      Updates key-value pairs to a map in a field in Firestore.
