@@ -114,7 +114,8 @@ extension EasyFirestore {
     public static func updateMapValueWithPath<T, U>(key: String, value: U?, parentField: String, in document: T, completion: @escaping (Error?) -> Void = { _ in }) where T: Document, U: Codable {
       let collectionName = String(describing: type(of: document))
       let fullPath: String = "\(parentField).\(key)"
-      db.collection(collectionName).document(document.id).updateData([fullPath: value as Any], completion: completion)
+      let encoded: [String : Any]? = try? Firestore.Encoder().encode(value)
+      db.collection(collectionName).document(document.id).updateData([fullPath: encoded], completion: completion)
     }
 
     /**
