@@ -46,19 +46,19 @@ open class EasyUser: Document, IndexedDocument {
   // MARK: - Mixed Static Properties
   
   /// The change of the user's version.
-  public internal(set) static var versionUpdate: VersionChange = .none
+  @objc public internal(set) static var versionUpdate: VersionChange = .none
   
   // MARK: - Public Properties
   
   /// The user's notifications.
   ///
   /// Send notifications to a user using ``EasyMessaging``.
-  public var notifications: [MessagingNotification] = []
+  @objc public var notifications: [MessagingNotification] = []
   
   /// The user's disabled notification categories.
   ///
   /// Any messages with a ``MessageCategory`` that is in this array will not be send to the recipient.
-  public var disabledMessageCategories: [MessageCategory] = []
+  @objc public var disabledMessageCategories: [MessageCategory] = []
   
   /// The user's app progression.
   ///
@@ -69,33 +69,33 @@ open class EasyUser: Document, IndexedDocument {
   /// - `-1` means the user has just been initalized.
   /// - `0` means the user data has been pushed to Firestore.
   /// - `1` and above are values you can customize.
-  public var progress: Int = -1
+  @objc public var progress: Int = -1
   
   /// The user's profile image.
   ///
   /// If the user uses a third-party authentication service like Google, this image will automatically update.
   /// You can specify a default profile image by setting `EasyAuth.defaultProfileImageURLs`.
-  public var profileImageURL: String?
+  @objc public var profileImageURL: String?
   
   // MARK: - Mixed Properties
   
   /// The user's FCM device token.
   ///
   /// This value is automatically updated.
-  public internal(set) var deviceToken: String?
+  @objc public internal(set) var deviceToken: String?
   
   /// The user's last logged-in app version.
   ///
   /// This value is automatically updated when the user logs in.
-  public internal(set) var appVersion: String
+  @objc public internal(set) var appVersion: String
   
   /// The user's last signon date.
   ///
   /// This value is automatically updated each time the user logs into your application.
-  public internal(set) var lastSignon: Date
+  @objc public internal(set) var lastSignon: Date
   
   /// The user's email address.
-  public internal(set) var email: String
+  @objc public internal(set) var email: String
   
   /// The user's active sessions.
   ///
@@ -117,9 +117,9 @@ open class EasyUser: Document, IndexedDocument {
   
   // MARK: - Inherited Properties
   
-  public var index: Int?
-  public var id: String
-  public var dateCreated: Date
+  @objc public var index: Int?
+  @objc public var id: String
+  @objc public var dateCreated: Date
   
   // MARK: - Public Initalizers
   
