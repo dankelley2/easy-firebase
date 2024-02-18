@@ -30,29 +30,29 @@ public class MessagingNotification: Model, Equatable {
   // MARK: - Public Properties
   
   /// The date of the notification.
-  public var date: Date = Date()
+  @objc public var date: Date = Date()
   
   /// The notification's category.
   ///
   /// This value can be used to limit user notifications through ``EasyUser.disabledNotificationCategories``.
-  public var category: MessageCategory
+  @objc public var category: MessageCategory
   
   /// The notification's key.
   ///
   /// Use this type to break notification handling into action cases.
-  public var key: String?
+  @objc public var key: String?
   
   /// The user that this notification came from.
-  public var user: EasyUser.ID?
+  @objc public var user: EasyUser.ID?
   
   /// The notification's title. Displayed in bold.
-  public var title: String
+  @objc public var title: String
   /// The body of the push notification.
-  public var body: String
+  @objc public var body: String
   /// The attached image URL to the notification, if any.
-  public var image: URL?
+  @objc public var image: URL?
   /// Whether the notification has been read
-  public var read: Bool = false
+  @objc public var read: Bool = false
   
   // MARK: - Public Initalizers
   
