@@ -46,7 +46,7 @@ open class EasyUser: Document, IndexedDocument {
   // MARK: - Mixed Static Properties
   
   /// The change of the user's version.
-  @objc public internal(set) static var versionUpdate: VersionChange = .none
+  public internal(set) static var versionUpdate: VersionChange = .none
   
   // MARK: - Public Properties
   
