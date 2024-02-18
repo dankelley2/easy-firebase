@@ -117,7 +117,7 @@ open class EasyUser: Document, IndexedDocument {
   
   // MARK: - Inherited Properties
   
-  @objc public var index: Int?
+  public var index: Int?
   @objc public var id: String
   @objc public var dateCreated: Date
   
